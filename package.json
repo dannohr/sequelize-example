@@ -9,12 +9,21 @@
     "express": "^4.16.4",
     "sequelize": "^5.2.0",
     "sequelize-cli": "^5.4.0",
-    "tedious": "^6.1.0"
+    "tedious": "^6.1.0",
+    "winston": "^3.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cross-env": "^3.2.4",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.0.2",
+    "supertest": "^2.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env DEBUG=express-sequelize node ./bin/www",
+    "test": "npm run test-unit && npm run test-integration",
+    "test-unit": "cross-env NODE_ENV=test ./node_modules/.bin/mocha test/unit/*.test.js",
+    "test-integration": "cross-env NODE_ENV=test ./node_modules/.bin/mocha test/integration/*.test.js"
   },
-  "author": "",
+  "author": "Dan Nohr",
   "license": "ISC"
 }

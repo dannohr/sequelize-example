@@ -1,7 +1,7 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Customer = sequelize.define(
-    "Customer",
+  const Vendor = sequelize.define(
+    "Vendor",
     {
       id: {
         primaryKey: true,
@@ -16,9 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  Customer.associate = function(models) {
-    Customer.belongsTo(models.Address, { foreignKey: "ShippingAddressId" });
-    Customer.belongsTo(models.Address, { foreignKey: "BillingAddressId" });
+  Vendor.associate = function(models) {
+    Vendor.belongsTo(models.Address, {});
   };
-  return Customer;
+  return Vendor;
 };

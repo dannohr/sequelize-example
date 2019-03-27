@@ -1,13 +1,19 @@
 var models = require("./models/index");
 
 let tables = [
-  "Company",
-  "Customer",
   "QbSyncLog",
-  "Role",
   "Session",
+  "UserCompanyRole",
+  "Customer",
+  "UserRoleRight",
+  "Role",
+  "UserRight",
+  "UserCompany",
+  "UserRole",
   "User",
-  "UserRole"
+  "Company",
+  "Vendor",
+  "Address"
 ];
 
 for (let table of tables) {

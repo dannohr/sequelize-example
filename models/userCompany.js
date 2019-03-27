@@ -8,15 +8,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         autoIncrement: true
       }
-      // userRoleId: { type: DataTypes.INTEGER, allowNull: true }
     },
     {}
   );
 
   UserCompany.associate = function(models) {
-    // UserCompany.belongsTo(models.User, {});
-    // UserCompany.belongsTo(models.Company, {});
-    // UserCompany.belongsTo(models.UserRole, {});
+    UserCompany.belongsToMany(models.UserRole, {
+      through: models.UserCompanyRole
+    });
   };
 
   return UserCompany;

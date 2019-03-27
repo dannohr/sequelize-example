@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
     UserRole.belongsToMany(models.UserRight, {
       through: models.UserRoleRight
     });
+    UserRole.belongsToMany(models.UserCompany, {
+      through: models.UserCompanyRole
+    });
   };
 
   return UserRole;

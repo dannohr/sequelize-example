@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     "Address",
     {
       id: {
-        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
@@ -37,10 +36,10 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Address.associate = models => {
-    // Company.hasMany(models.UserCompany, {});
-    // Address.belongsToMany(models.User, {
-    //   through: models.UserCompany
-    // });
+    Address.hasMany(models.Customer, { foreignKey: "ShippingAddressId" });
+    Address.hasMany(models.Customer, { foreignKey: "BillingAddressId" });
+    Address.hasMany(models.Company, {});
+    Address.hasMany(models.Vendor, {});
   };
 
   return Address;
